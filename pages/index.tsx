@@ -2,6 +2,10 @@ import Head from 'next/head'
 import { useLoans } from 'gql-api/get-loans'
 import SharedLayout from 'components/shared-layout'
 
+function asDollars(dollars: number): string {
+  return new Intl.NumberFormat('en-uS', { style: 'currency', currency: 'USD' }).format(dollars)
+}
+
 export default function Home(): JSX.Element {
   const loans = useLoans()
 
@@ -40,13 +44,13 @@ export default function Home(): JSX.Element {
                             scope='col'
                             className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
                           >
-                            Status
+                            Amount
                           </th>
                           <th
                             scope='col'
                             className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
                           >
-                            Amount
+                            Status
                           </th>
                         </tr>
                         </thead>
@@ -55,8 +59,8 @@ export default function Home(): JSX.Element {
                           <tr key={loan.id}>
                             <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>{loan.id}</td>
                             <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>{loan.name}</td>
+                            <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>{asDollars(loan.amount)}</td>
                             <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>{loan.status}</td>
-                            <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>{loan.amount}</td>
                           </tr>
                         ))}
                         </tbody>
