@@ -5,7 +5,7 @@ Weclome to the Inclined Coding Session VSLAD (Very Simple Loan Admin Dashboard).
 The current dashboard just displays a list of loans along with a few simple details for each loan. At the start of your coding session you'll be given a prompt to make modications to the code base, adding bits of functionality to the front and back end. An engineer will guide you through that process and be available for any clarifications or to answer any questions during your session.
 
 *Why Albion?*
-Albion is the Roman Empires name for Great Britain. Our main code repository is called Caledonia, which is the Roman Empires name for Scotland...so that's the connection. Why Caledonia? It's the main street in Sausalito where we have our small home office (just across the Golden Gate Bridge from SF).
+Albion is the Roman Empires name for Great Britain. Our main code repository is called Caledonia, which is the Roman Empires name for Scotland. Why Caledonia? It's the main street in Sausalito where we have our small home office (just across the Golden Gate Bridge from SF).
 
 ### Getting started
 
