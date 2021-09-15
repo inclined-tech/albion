@@ -2,7 +2,7 @@
 
 Weclome to the Inclined Coding Session VSLAD (Very Simple Loan Admin Dashboard). The first step is to get VSLAD running locally and familiarize yourself with the code before your session. The app runs on a pretty vanilla NextJS, GraphQL, Prisma, Postgres stack - but every stack has its choices and idiosyncrasies. If something isn't clear or if you have trouble setting up your environment, please reach out!
 
-At the start of your coding session you'll be given a prompt to make modications to the code base, adding bits of functionality to the front and back end. An engineer will guide you through that process and be available for any clarifications or to answer any questions during your session.
+The current dashboard just displays a list of loans along with a few simple details for each loan. At the start of your coding session you'll be given a prompt to make modications to the code base, adding bits of functionality to the front and back end. An engineer will guide you through that process and be available for any clarifications or to answer any questions during your session.
 
 *Why Albion?*
 Albion is Roman empires name for Great Britain. Our main code repository is called Caledonia, which is the Roman empires name for Scotland...so that's the connection. Why Caledonia? It's the main street in Sausalito where we have our small home office (just across the Golden Gate Bridge from SF).
