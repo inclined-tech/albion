@@ -34,7 +34,7 @@ View your barebones Loan Admin Dashoard: [Home page](http://localhost:3000)
 
 ### Navigating the code
 
-Below is an overview of the directory structure to help you navigate the code. There is some generated GraphQL code (in `__generated__` directories) for both the client and server. We use two different GraphQL code generators, one for client-side hooks and one server-side resolvers.
+Below is an overview of parts of the directory structure to help you navigate the code. There is some generated GraphQL code (in `__generated__` directories) for both the client and server. We use two different GraphQL code generators, one for client-side hooks and one server-side resolvers.
 
 ```
 +-- /__generated__     Client-side generated GraphQL types (enums, etc.)
@@ -50,10 +50,6 @@ Below is an overview of the directory structure to help you navigate the code. T
 |     /__generated__     Genereted server types
 |     resovlers.ts       Resolver implementations
 |     typedefs.ts
-|
-+-- /lib
-|     prisma.ts
-|     url.ts
 |
 +-- /pages             Standard NextJS structure
 |     /api
