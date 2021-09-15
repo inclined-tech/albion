@@ -1,70 +1,67 @@
-# Inclined Coding Challenge
+# Inclined Coding Session
+
+Weclome to the Inclined Coding Session VSLAD (Very Simple Loan Admin Dashboard). The first step is to get VSLAD running locally and familiarize yourself with the code before your session. The app runs on a pretty vanilla NextJS, GraphQL, Prisma, Postgres stack - but every stack has its choices and idiosyncrasies. If something isn't clear or if you have trouble setting up your environment, please reach out!
+
+At the start of your coding session you'll be given a prompt to make modications to the code base, adding bits of functionality to the front and back end. An engineer will guide you through that process and be available for any clarifications or to answer any questions during your session.
+
+*Why Albion?*
+Albion is Roman empires name for Great Britain. Our main code repository is called Caledonia, which is the Roman empires name for Scotland...so that's the connection. Why Caledonia? It's the main street in Sausalito where we have our small home office (just across the Golden Gate Bridge from SF).
 
 ### Getting started
 
-### Install Brew
-
-- https://brew.sh
-
-### Set up your environment
-
-- Create `.env.local` file and add the `DATABASE_URL` value (should be provided separately)
+You'll need some basics if you don't have them already:
+- Install Brew: https://brew.sh
+- Install Node: `brew install node`
+- Install Postgres: `brew install postgres`
 
 ### Install dependencies
 
-- Install node: `brew install node`
 - Install global packages: `npm run install-global-packages`
 - Install npm dependencies: `npm install`
 
 ### Initialize your database
 
-- Create your schema: `npm run migrate` 
-- Seed your table: `npm run seed`
+- Create your schema: `npm run migrate` (this will create an `albion` and a single `loan` table)
+- Populate your `loan` table with data: `npm run seed`
 
 ### Start the server
 
 Run: `npm run dev`
 
-### Go to the home page
+### Go to the home page 
 
-[Home page](http://localhost:3000)
+View your barebones Loan Admin Dashoard: [Home page](http://localhost:3000)
 
-### Directory structure 
+### Navigating the code
 
-This simple Loan Dashboard app uses a vanilla NextJS, GQL, and Prisma set-up. Here's an overview of the directory structure to help you navigate the code. There is some generated code (in `__generated__` directories) for both the client and server. The page and API structure is standard [NextJS](https://nextjs.org/docs/getting-started).
-
+Below is an overview of the directory structure to help you navigate the code. There is some generated GraphQL code (in `__generated__` directories) for both the client and server. We use two different GraphQL code generators, one for client-side hooks and one server-side resolvers.
 
 ```
-+-- /__generated__    Client-side generated GQL types 
++-- /__generated__     Client-side generated GraphQL types (enums, etc.)
 |
-+-- /components       Shared UI components
++-- /components        Shared UI components
 |
-+-- /gql-api          Client-side generated resolver and mutator signatures
-|     /__generated__
-|       GetLoans.ts
-|       UpdateLoanMutation.ts
-|     get-loans.ts
-|     update-loans.ts
++-- /gql-api           Client-side GraphQL code
+|     /__generated__     Generated client resolver and mutator signatures
+|     get-loans.ts             
+|     update-loan.ts
 |
-+-- /graphql          Server-side generated GQL code
-|     /__generated__
-|       resolver-types.ts
-|     resovlers.ts
++-- /graphql           Server-side GraphQL code
+|     /__generated__     Genereted server types
+|     resovlers.ts       Resolver implementations
 |     typedefs.ts
 |
 +-- /lib
 |     prisma.ts
 |     url.ts
 |
-+-- /pages            Standard NextJS structure
++-- /pages             Standard NextJS structure
 |     /api
 |       graphql.ts
 |     ...
 |    
-+-- /prisma           Standard Prisma structure
++-- /prisma            Standard Prisma structure
 |     ...
-|  
-+-- /scripts
 |
 +-- /styles
 |
