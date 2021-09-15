@@ -1,10 +1,7 @@
 import Head from 'next/head'
 import { useLoans } from 'gql-api/get-loans'
 import SharedLayout from 'components/shared-layout'
-
-function asDollars(dollars: number): string {
-  return new Intl.NumberFormat('en-uS', { style: 'currency', currency: 'USD' }).format(dollars)
-}
+import { asDollars } from '../lib/formatters'
 
 export default function Home(): JSX.Element {
   const loans = useLoans()
