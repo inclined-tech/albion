@@ -1,4 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
 // Adds a variant that applies styles when a sibling element is focused
@@ -29,26 +28,7 @@ module.exports = {
       6: '6px',
       8: '8px',
     },
-    fontSize: {
-      xs: ['0.625rem', '1rem'],
-      sm: ['0.6875rem', '1.125rem'],
-      base: ['0.75rem', '1.125rem'],
-      lg: ['0.8125rem', '1.25rem'],
-      xl: ['0.875rem', '1.25rem'],
-      '2xl': ['1rem', '1.5rem'],
-      '3xl': ['1.25rem', '2rem'],
-      '4xl': ['2.5rem', '2.75rem'],
-      '5xl': ['3.125rem', '3.5rem'],
-    },
     extend: {
-      fontFamily: {
-        sans: ['ProximaNova', ...defaultTheme.fontFamily.sans],
-        mono: ['"Roboto mono"', ...defaultTheme.fontFamily.mono],
-        header: ['Roboto', ...defaultTheme.fontFamily.sans],
-        // these are so the fonts can be referenced explicitly
-        roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
-        proxima: ['ProximaNova', ...defaultTheme.fontFamily.sans],
-      },
       colors: {
         primary: {
           'brand-1': '#252e59',
@@ -109,7 +89,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
-    require('./tailwind/text-styles'),
     focusedSiblingPlugin,
   ],
 }

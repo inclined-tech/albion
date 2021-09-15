@@ -10,69 +10,65 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Loan Review</title>
       </Head>
-      <div className="h-screen bg-white overflow-hidden flex">
-        <div className="flex-1 w-0 flex flex-col">
-          <div className="md:px-16 md:py-32 overflow-y-auto">
-            <div className="max-w-prose flex flex-col sm:space-y-4">
-              <h2 className="inclined-text-5xl-roboto-black font-header">
-                Loans
-              </h2>
+      <main className='flex-1 overflow-y-auto focus:outline-none'>
+        <div className='relative max-w-6xl mx-auto md:px-8 xl:px-0'>
+          <div className='pt-10 pb-16'>
+            <div className='px-4 sm:px-6 md:px-0 pb-6'>
+              <h1 className='text-3xl font-extrabold text-gray-900'>Loans</h1>
             </div>
-            <div className="max-w-2xl xl:max-w-5xl flex flex-col sm:space-y-6 pt-16 pb-16">
-              {loans && (
-                <>
-                  <div key={'header'} className="grid grid-cols-8 gap-8">
-                    <div className="col-span-1 inclined-text-xs-roboto-mono-medium text-dark-grey">
-                      <span className="inclined-text-sm-roboto-mono-bold text-black">
-                        Loan #
-                      </span>
-                    </div>
-                    <div className="col-span-1 inclined-text-xs-roboto-mono-medium text-dark-grey">
-                      <span className="inclined-text-sm-roboto-mono-bold text-black">
-                        Name
-                      </span>
-                    </div>
-                    <div className="col-span-1 inclined-text-xs-roboto-mono-medium text-dark-grey">
-                      <span className="inclined-text-sm-roboto-mono-bold text-black">
-                        Status
-                      </span>
-                    </div>
-                    <div className="col-span-1 inclined-text-xs-roboto-mono-medium text-dark-grey">
-                      <span className="inclined-text-sm-roboto-mono-bold text-black">
-                        Amount
-                      </span>
+            {loans && (
+              <div className='flex flex-col'>
+                <div className='-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
+                  <div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
+                    <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
+                      <table className='min-w-full divide-y divide-gray-200'>
+                        <thead className='bg-gray-50'>
+                        <tr>
+                          <th
+                            scope='col'
+                            className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
+                          >
+                            Loan #
+                          </th>
+                          <th
+                            scope='col'
+                            className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
+                          >
+                            Name
+                          </th>
+                          <th
+                            scope='col'
+                            className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
+                          >
+                            Status
+                          </th>
+                          <th
+                            scope='col'
+                            className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
+                          >
+                            Amount
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody className='bg-white divide-y divide-gray-200'>
+                        {loans.map((loan) => (
+                          <tr key={loan.id}>
+                            <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>{loan.id}</td>
+                            <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>{loan.name}</td>
+                            <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>{loan.status}</td>
+                            <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>{loan.amount}</td>
+                          </tr>
+                        ))}
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                  {loans.map((loan) => (
-                    <div key={loan.id} className="grid grid-cols-8 gap-8">
-                      <div className="col-span-1 inclined-text-xs-roboto-mono-medium text-dark-grey">
-                        <span className="inclined-text-sm-roboto-mono-bold text-black">
-                          {loan.id}
-                        </span>
-                      </div>
-                      <div className="col-span-1 inclined-text-xs-roboto-mono-medium text-dark-grey">
-                        <span className="inclined-text-sm-roboto-mono-bold text-black">
-                          {loan.name}
-                        </span>
-                      </div>
-                      <div className="col-span-1 inclined-text-xs-roboto-mono-medium text-dark-grey">
-                        <span className="inclined-text-sm-roboto-mono-bold text-black">
-                          {loan.status}
-                        </span>
-                      </div>
-                      <div className="col-span-1 inclined-text-xs-roboto-mono-medium text-dark-grey">
-                        <span className="inclined-text-sm-roboto-mono-bold text-black">
-                          {loan.amount}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </>
-              )}
-            </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      </div>
+      </main>
     </SharedLayout>
   )
 }
