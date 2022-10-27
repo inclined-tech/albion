@@ -1,9 +1,6 @@
 import { gql, useMutation } from '@apollo/client'
 import { GraphQLError } from 'graphql'
-import {
-  UpdateLoanMutation,
-  UpdateLoanMutation_updateLoan,
-} from 'gql-api/__generated__/UpdateLoanMutation'
+import { UpdateLoanMutation } from '../shared/types'
 
 const UPDATE_LOAN = gql`
   mutation UpdateLoanMutation($id: Int!, $newStatus: LoanStatus!) {
@@ -18,7 +15,7 @@ const UPDATE_LOAN = gql`
  * Hook to update the status of a loan
  */
 export function useUpdateLoan(): () => Promise<
-  [loan?: UpdateLoanMutation_updateLoan, errors?: readonly GraphQLError[]]
+  [loan?: UpdateLoanMutation['updateLoan'], errors?: readonly GraphQLError[]]
 > {
   const [openLoan] = useMutation<UpdateLoanMutation>(UPDATE_LOAN, {
     errorPolicy: 'all',

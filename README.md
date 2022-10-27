@@ -16,7 +16,6 @@ You'll need some basics if you don't have them already:
 
 ### Install dependencies
 
-- Install global packages: `npm run install-global-packages` (install globally because lastest Apollo version was conflicting w/ GraphQL codegen, an unfortunate temporary workaround)
 - Install npm dependencies: `npm install` (this will also run code generation)
 
 ### Initialize your database
@@ -34,22 +33,22 @@ View your Very Simple Loan Admin Dashoard [home page](http://localhost:3000). Yo
 
 ![Very_Simple_Loan_Dashboard](https://user-images.githubusercontent.com/33855/133516456-84bc282e-8206-4848-9fce-497a941df4c7.png)
 
-(NOTE: it's not currently reading from your database, these values are hard-coded)
+(NOTE: it's not yet reading from your database, these values are hard-coded)
 
 ### Navigating the code
 
-Below is an overview of parts of the directory structure to help you navigate the code. There is some generated GraphQL code (in `__generated__` directories) for both the client and server. We use two different GraphQL code generators, one for client-side hooks and one server-side resolvers.
+Below is an overview of parts of the directory structure to help you navigate the code. There is some generated GraphQL code in `client/shared/types.ts` and the `/graphql/__generated__/` directory.
 
 ```
-+-- /__generated__     Client-side generated GraphQL types (enums, etc.)
++-- /client
+|     /shared
+|       types.ts       Client-side generated GraphQL types 
+|     /api             React hooks to call GraphQL      
+|       get-loans.ts             
+|       update-loan.ts
 |
 +-- /components        Shared UI components
-|
-+-- /gql-api           Client-side GraphQL code
-|     /__generated__     Generated client resolver and mutator signatures
-|     get-loans.ts             
-|     update-loan.ts
-|
+||
 +-- /graphql           Server-side GraphQL code
 |     /__generated__     Genereted server types
 |     resovlers.ts       Resolver implementations
@@ -63,7 +62,7 @@ Below is an overview of parts of the directory structure to help you navigate th
 +-- /prisma            Standard Prisma structure
 |     ...
 |
-+-- /styles
++-- /scripts           Build helpers
 |
-+-- /tailwind
++-- /styles
 ```

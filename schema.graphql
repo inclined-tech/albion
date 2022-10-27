@@ -1,8 +1,3 @@
-directive @cacheControl(
-  maxAge: Int
-  scope: CacheControlScope
-) on FIELD_DEFINITION | OBJECT | INTERFACE
-
 type Query {
   _empty: String
   loans(status: LoanStatus): [Loan!]
@@ -26,9 +21,3 @@ type Loan {
   status: LoanStatus!
   amount: Int!
 }
-
-enum CacheControlScope {
-  PUBLIC
-  PRIVATE
-}
-

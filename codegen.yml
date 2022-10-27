@@ -1,5 +1,48 @@
-schema: './schema.graphql'
+overwrite: true
+schema:
+  - ./schema.graphql
+  - ./client/app/apollo/typedefs.ts
+documents:
+  - '**/*.{ts,tsx}'
+  # Ignore test files and dependencies
+  - '!**/*.test.ts'
+  - '!node_modules/**/*.ts'
+
 generates:
+  ./client/shared/types.ts:
+    documents:
+      - client/**/*.{ts,tsx}
+    config:
+      scalars:
+        BigInt: number
+        Date: Date
+        DateTime: Date
+      strictScalars: true # Throws an error if a custom scalar is missing from this config
+      preResolveTypes: true # Simplifies the generated types
+      namingConvention:
+        typeNames: keep
+        enumValues: keep
+      avoidOptionals: # Avoids optionals on the level of the field
+        field: true
+      nonOptionalTypename: true # Forces `__typename` on all selection sets
+      skipTypeNameForRoot: true # Don't generate __typename for root types
+      dedupeFragments: true
+      dedupeOperationSuffix: true
+      omitOperationSuffix: true
+      enumsAsConst: true
+      maybeValue: T | null
+      useIndexSignature: true
+      withHooks: true
+      flattenGeneratedTypes: true
+      inputMaybeValue: T | null | undefined
+    plugins:
+      - typescript
+      - typescript-resolvers
+      - typescript-operations
+      - typescript-apollo-client-helpers
+      - add:
+          content: '/* eslint-disable */'
+
   ./graphql/__generated__/resolvers-types.ts:
     config:
       useIndexSignature: true

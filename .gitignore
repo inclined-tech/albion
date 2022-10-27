@@ -31,3 +31,4 @@ yarn-error.log*
 
 # codegen
 __generated__/
+client/shared/types.ts

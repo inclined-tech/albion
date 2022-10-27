@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client'
-import { GetLoans, GetLoans_loans } from 'gql-api/__generated__/GetLoans'
+import { GetLoans } from '../shared/types'
 
 export const GET_LOANS = gql`
   query GetLoans {
@@ -12,14 +12,14 @@ export const GET_LOANS = gql`
   }
 `
 
-export type Loan = GetLoans_loans
+export type Loans = GetLoans['loans']
 
 /**
  * A hook which returns all the loans in the db
  *
- * @return {Loan[]} a list of loans
+ * @return {Loans} an array of loans
  */
-export function useLoans(): Loan[] {
+export function useLoans(): Loans {
   const { data, error } = useQuery<GetLoans>(GET_LOANS, {
     fetchPolicy: 'cache-and-network',
   })

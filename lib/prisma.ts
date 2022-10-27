@@ -1,12 +1,10 @@
 import { Prisma, PrismaClient } from '@prisma/client'
 
+// See https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/instantiate-prisma-client
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace NodeJS {
-    interface Global {
-      prisma: PrismaClient
-    }
-  }
+  // the global namespace requires use of var
+  // eslint-disable-next-line no-var
+  var globalPrisma: PrismaClient
 }
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -15,12 +13,16 @@ let prisma: PrismaClient
 if (isProd) {
   prisma = new PrismaClient()
 } else {
-  if (!global.prisma) {
+  if (!global.globalPrisma) {
     const optionsArg: Prisma.PrismaClientOptions = {}
-    global.prisma = new PrismaClient(optionsArg)
+    
+    // uncomment to enable prisma logging
+    // optionsArg.log = ['query', 'info', `warn`, `error`]
+
+    global.globalPrisma = new PrismaClient(optionsArg)
   }
 
-  prisma = global.prisma
+  prisma = global.globalPrisma
 }
 
 export default prisma
