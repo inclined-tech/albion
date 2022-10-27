@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useLoans } from 'gql-api/get-loans'
+import { useLoans } from 'client/api/get-loans'
 import SharedLayout from 'components/shared-layout'
 import { asDollars } from '../lib/formatters'
 
