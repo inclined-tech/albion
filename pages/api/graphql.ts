@@ -1,16 +1,14 @@
-import { ApolloServer } from 'apollo-server-micro'
+import { ApolloServer } from '@apollo/server'
 import { typeDefs } from 'graphql/typedefs'
 import resolvers from 'graphql/resolvers'
+import { makeExecutableSchema } from '@graphql-tools/schema'
+import { startServerAndCreateNextHandler } from '@as-integrations/next'
 
 const apolloServer = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema: makeExecutableSchema({
+    typeDefs,
+    resolvers
+  })
 })
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
-
-export default apolloServer.createHandler({ path: '/api/graphql' })
+export default startServerAndCreateNextHandler(apolloServer)

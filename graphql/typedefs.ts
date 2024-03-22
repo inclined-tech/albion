@@ -1,5 +1,5 @@
 // Placeholder so we can extend Query and Mutation in other typedef files
-import { gql } from 'apollo-server-micro'
+import { gql } from '@apollo/client'
 
 const root = gql`
   type Query {

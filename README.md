@@ -9,10 +9,13 @@ Albion is the Roman Empire's name for Great Britain. Our main code repository is
 
 ### Getting started
 
-You'll need some basics if you don't have them already:
+You'll need some basics if you don't have them already. We use these versions of `node` and `postgres`, but the latest
+versions will likely work as well:
 - Install Brew: https://brew.sh
-- Install Node: `brew install node`
-- Install Postgres: `brew install postgres`
+- Install Node: `brew install node@18`
+- Install Postgres: `brew install postgres@14`
+  - Start Postgres (there is more information on how to start it at the end of the output from install): `brew services start postgresql`
+  - If you start Postgres this way, you can stop it when you are done with `brew services stop postgresql`. This will ensure it isn't always running on your machine.
 
 ### Install dependencies
 
